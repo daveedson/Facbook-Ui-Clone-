@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_responsive_ui/widgets/Rooms.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/circleButton.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/createPostContainer.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -49,10 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
             currentUser: currentUser,
            )
          ),
-         SliverToBoxAdapter(
-          child: Rooms(
-           onlineUsers:onlineUsers
-          ),
+         SliverPadding(
+          padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+           sliver: SliverToBoxAdapter(
+            child: Rooms(
+             onlineUsers:onlineUsers
+            ),
+           ),
          )
         ],
       ),
