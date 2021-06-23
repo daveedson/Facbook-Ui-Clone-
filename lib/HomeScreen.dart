@@ -5,6 +5,7 @@ import 'package:flutter_facebook_responsive_ui/widgets/createPostContainer.dart'
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'config/palette.dart';
 import 'data/data.dart';
+import 'widgets/stories.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
          SliverToBoxAdapter(
            child:CreatePostContainer(
             currentUser: currentUser,
-           )
+           ),
          ),
          SliverPadding(
           padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
@@ -57,7 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
              onlineUsers:onlineUsers
             ),
            ),
-         )
+         ),
+         SliverPadding(
+          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+          sliver: SliverToBoxAdapter(
+           child: Stories(currentUser:currentUser,stories:stories)
+          ),
+         ),
         ],
       ),
     );
