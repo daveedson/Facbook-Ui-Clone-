@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/Rooms.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/circleButton.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/createPostContainer.dart';
+import 'package:flutter_facebook_responsive_ui/widgets/postContainer.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'config/palette.dart';
 import 'data/data.dart';
+import 'models/post_model.dart';
 import 'widgets/stories.dart';
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -39,32 +40,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 iconSize: 30.0,
                 onPressed: () {},
               ),
-             CircleButton(
-              icon: MdiIcons.facebookMessenger,
-              iconSize: 30.0,
-              onPressed: () {},
-             )
+              CircleButton(
+                icon: MdiIcons.facebookMessenger,
+                iconSize: 30.0,
+                onPressed: () {},
+              )
             ],
           ),
-         SliverToBoxAdapter(
-           child:CreatePostContainer(
-            currentUser: currentUser,
-           ),
-         ),
-         SliverPadding(
-          padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
-           sliver: SliverToBoxAdapter(
-            child: Rooms(
-             onlineUsers:onlineUsers
+          SliverToBoxAdapter(
+            child: CreatePostContainer(
+              currentUser: currentUser,
             ),
-           ),
-         ),
-         SliverPadding(
-          padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-          sliver: SliverToBoxAdapter(
-           child: Stories(currentUser:currentUser,stories:stories)
           ),
-         ),
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 5.0),
+            sliver: SliverToBoxAdapter(
+              child: Rooms(onlineUsers: onlineUsers),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+            sliver: SliverToBoxAdapter(
+                child: Stories(currentUser: currentUser, stories: stories)),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final Post post = posts[index];
+                return PostContainer(post: post);
+              },
+             childCount: posts.length
+            ),
+          )
         ],
       ),
     );

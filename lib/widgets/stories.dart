@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive_ui/config/palette.dart';
+import 'package:flutter_facebook_responsive_ui/data/data.dart';
 import 'package:flutter_facebook_responsive_ui/models/models.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/profileAvatar.dart';
 
@@ -108,7 +109,8 @@ class _StoryCard extends StatelessWidget {
            maxLines: 2,
            overflow: TextOverflow.ellipsis,
           ),
-        )
+        ),
+
       ],
     );
   }
