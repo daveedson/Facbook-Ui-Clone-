@@ -156,7 +156,7 @@ class _PostStats extends StatelessWidget {
         ),
         Divider(),
         Row(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         mainAxisAlignment: MainAxisAlignment.spaceBetween ,
           children: [
             FlatButton.icon(
               padding: EdgeInsets.zero,
