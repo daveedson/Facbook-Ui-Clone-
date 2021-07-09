@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_responsive_ui/HomeScreen.dart';
+import 'package:flutter_facebook_responsive_ui/config/palette.dart';
 import 'package:flutter_facebook_responsive_ui/data/data.dart';
+import 'package:flutter_facebook_responsive_ui/widgets/CustomAppBar.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/customTabBar.dart';
 import 'package:flutter_facebook_responsive_ui/widgets/responsive.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -37,17 +39,15 @@ class _NavScreenState extends State<NavScreen> {
     return DefaultTabController(
       length: _icons.length,
       child: Scaffold(
-        appBar: !Responsive.isDesktop(context)
+        appBar: Responsive.isDesktop(context)
             ? PreferredSize(
                 child: CustomAppBar(
                  currentUser:currentUser,
                  icons: _icons,
                  selectedIndex: _selectedIndex,
                     onTap: (index) => setState(() => _selectedIndex = index)
-
-
-
                 ),
+
                 preferredSize: Size(
                   screenSize.width,
                   100.0,
